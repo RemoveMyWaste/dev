@@ -230,15 +230,15 @@ app.get('/',function(req,res,next){
                     }
                     context.hazards = rows;
 
-                sql = 'SELECT COUNT(*) AS num FROM locations';
-                mysql.pool.query(sql, function(err, rows, fields){
-                    if(err){
-                        next(err);
-                        return;
-                    }
-                    context.locations = rows;
-                    res.render('home', context);
-                });
+                    sql = 'SELECT COUNT(*) AS num FROM locations';
+                    mysql.pool.query(sql, function(err, rows, fields){
+                        if(err){
+                            next(err);
+                            return;
+                        }
+                        context.locations = rows;
+                        res.render('home', context);
+                    });
                 });
             });
         });
